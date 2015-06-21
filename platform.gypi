@@ -1,7 +1,7 @@
 {
 	'includes':[
-		'lib/spawn/spawn.gypi',
-		'lib/http-client/http-client.gypi'
+		'../spawn/spawn.gypi',
+		'../http-client/http-client.gypi'
 	],
 	'target_defaults': {
 		'sources': [

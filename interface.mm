@@ -14,7 +14,7 @@ namespace om636
 
 	auto platform::make_client() -> client_type * 
 	{
-		ASSERT( m_impl );
+		ASSERT( m_impl != 0 );
 		return m_impl->create<client_type>();
 	}
 }	// om636
