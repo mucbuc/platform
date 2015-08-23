@@ -12,6 +12,9 @@
 
 namespace om636
 {
+	// where's the mac-opengl forward header? 
+	class window;
+
 	namespace pltfrm
 	{
 		template<class>
@@ -30,8 +33,6 @@ namespace om636
 			typedef response_type response_type;
 	        typedef std::function<void(response_type)> function_type;
 	    };
-
-	    
 	}
 
 	struct platform 
@@ -41,11 +42,14 @@ namespace om636
 		typedef abstract_factory< abstract_unit, client_type > impl_type;
 		std::shared_ptr< impl_type > m_impl;
 
+		typedef om636::window window_type; 
+
 	public:
 		
 		platform();
 		virtual ~platform() = default;
 		client_type * make_client();
+		window_type * make_window(); 
 	}; 
 
 } // om636

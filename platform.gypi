@@ -1,7 +1,8 @@
 {
 	'includes':[
+		'../http-client/http-client.gypi',
+		'../mac-opengl/def.gypi',
 		'../spawn/spawn.gypi',
-		'../http-client/http-client.gypi'
 	],
 	'target_defaults': {
 		'sources': [

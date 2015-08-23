@@ -1,8 +1,7 @@
 {
 	'includes':[
 		'lib/platform/platform.gypi',
-		'plank/def/cpp11.gypi',
-		'plank/def/mac-targets.gypi',
+		'plank/def/opengl.gypi',
 		'plank/def/plank.gypi',
 	],#inclues
 	'target_defaults': {

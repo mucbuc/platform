@@ -6,7 +6,8 @@
 int main(int argc, const char * argv[])
 {
     std::cout <<"hello"<< std::endl;
-    om636::platform().make_client();
+    ASSERT( om636::platform().make_client() );
+    //ASSERT( om636::platform().make_window() ); 
 
 	return 0;
 }
