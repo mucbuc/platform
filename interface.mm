@@ -23,6 +23,6 @@ namespace om636
 	auto platform::make_window() -> window_type * 
 	{
 		ASSERT( m_impl != 0 ); 
-		return new window_type; // m_impl->create<window_type>(); 
+        return m_impl->create<window_type>();
 	}
 }	// om636

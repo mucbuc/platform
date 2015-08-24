@@ -39,10 +39,9 @@ namespace om636
 	{
 	private:
         typedef http::Client< void, pltfrm::client_traits > client_type;
-		typedef abstract_factory< abstract_unit, client_type > impl_type;
+        typedef om636::window window_type;
+		typedef abstract_factory< abstract_unit, client_type, window_type > impl_type;
 		std::shared_ptr< impl_type > m_impl;
-
-		typedef om636::window window_type; 
 
 	public:
 		
