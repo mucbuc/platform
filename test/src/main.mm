@@ -7,6 +7,5 @@ int main(int argc, const char * argv[])
 {
     ASSERT( om636::platform().make_client() );
     ASSERT( om636::platform().make_window() );
-    ASSERT( om636::platform().make_application() );
     return 0;
 }
