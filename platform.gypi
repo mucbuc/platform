@@ -7,7 +7,9 @@
 	'target_defaults': {
 		'sources': [
 			'interface.h',
-			'interface.mm'
+			'interface.mm',
+			'src/application.h',
+			'src/application.mm',
 		],
 	}
 }
