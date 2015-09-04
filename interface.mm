@@ -1,7 +1,7 @@
 #include "interface.h"
 
 #include <lib/http-client/src/clients/mac.h>
-#include <lib/mac-opengl/src/window.h>
+#include <lib/platform/src/mac/window.h>
 #include <lib/spawn/src/concrete_factory.h>
 
 namespace om636
