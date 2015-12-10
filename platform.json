@@ -1,0 +1,30 @@
+{
+	"import":[
+		"lib/context/def.json",
+		"lib/drop/def.json",
+		"lib/http-client/http-client.json",
+		"lib/numbro/def.json",
+		"lib/objectify/def.json",
+		"lib/prima/def.json",
+		"lib/sense/def.json",
+		"lib/spawn/spawn.json",
+		"lib/static/def.json",
+		"lib/traverse/traverse.json"
+	],
+	"sources": [
+		"interface.h",
+		"interface.mm",
+		"src/mac/glUtil.h",
+		"src/mac/OpenGLView.h",
+		"src/mac/OpenGLView.mm",
+		"src/mac/root_context.cpp",
+		"src/mac/root_context.h",
+		"src/mac/TrackView.h",
+		"src/mac/TrackView.mm",
+		"src/mac/window.h",
+		"src/mac/window.mm"
+	]
+}
+
+
+
