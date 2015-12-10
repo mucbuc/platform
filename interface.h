@@ -1,9 +1,8 @@
 #ifndef INTERFACE_H_L345L3JKL34K7867876
 #define INTERFACE_H_L345L3JKL34K7867876
 
-#include "plank/src/test.h"
-
 #include <memory>
+#include <functional>
 
 #include <lib/http-client/src/client.h>
 #include <lib/http-client/src/request.h>
