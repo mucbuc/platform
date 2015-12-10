@@ -1,9 +1,0 @@
-{
-	"import":[
-		"../http-client.json"
-	],
-	"sources": [
-		"src/impl.h",
-		"src/main.mm"
-	]
-}
