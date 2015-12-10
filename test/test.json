@@ -1,0 +1,8 @@
+{
+	"import":[
+		"lib/platform/platform.json"
+	],
+	"sources": [
+			"src/main.mm"
+	]
+}
