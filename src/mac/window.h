@@ -5,6 +5,8 @@
 
 namespace om636
 {
+
+	class root_context; 
 	class window
 	{
 		class impl;
@@ -13,6 +15,8 @@ namespace om636
 		
 		window();
 		~window() = default;
+
+		void setContext(root_context *);
 
 		window(const window &) = delete;
 		window & operator=(const window &) = delete;
