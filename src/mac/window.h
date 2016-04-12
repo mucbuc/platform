@@ -11,7 +11,8 @@ namespace om636
 	{
 		class impl;
 		std::unique_ptr< impl > m_impl;
-	public:
+        
+    public:
 		
 		window();
 		~window() = default;
