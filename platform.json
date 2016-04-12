@@ -23,7 +23,8 @@
 		"src/mac/TrackView.mm",
 		"src/mac/window.h",
 		"src/mac/window.mm"
-	]
+	],
+	"opengl": true
 }
 
 

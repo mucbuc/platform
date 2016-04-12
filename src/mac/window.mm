@@ -7,6 +7,7 @@
 
 #include <lib/sense/src/observer/same_scope.h>
 
+#include <tmp/src/test.h>//assert
 
 typedef om636::frame_swap<void> value_type;
 typedef om636::context< value_type, om636::visual_subject > context_type;
@@ -26,8 +27,6 @@ namespace om636
     
 		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
 
-		    [ view setContext: new om636::root_context ];
-
 		    window = [[NSWindow alloc] 
 		        initWithContentRect:windowRect 
 		        styleMask: (NSResizableWindowMask | NSClosableWindowMask | NSTitledWindowMask) 
@@ -36,10 +35,24 @@ namespace om636
 		    [ window setContentView:view ];
 		    [ window makeKeyAndOrderFront:nil ];
 		}
+
+		void setContext(root_context * context)
+		{
+			ASSERT( window.contentView );
+			[ window.contentView setContext: context];
+		}
+
 	};
 
 	window::window() 
 	: m_impl( new impl() )
 	{}
+
+
+	void window::setContext(root_context * ctx)
+	{	
+		ASSERT(m_impl.get());
+		m_impl->setContext(ctx);
+	}
 
 }	// om636 

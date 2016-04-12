@@ -5,14 +5,19 @@
 
 namespace om636
 {
+
+	class root_context; 
 	class window
 	{
 		class impl;
 		std::unique_ptr< impl > m_impl;
-	public:
+        
+    public:
 		
 		window();
 		~window() = default;
+
+		void setContext(root_context *);
 
 		window(const window &) = delete;
 		window & operator=(const window &) = delete;
