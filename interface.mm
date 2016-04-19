@@ -28,4 +28,10 @@ namespace om636
         result->setContext(m_context);
         return result;
 	}
+    
+    auto platform::context() -> root_context *
+    {
+        return m_context;
+    }
+    
 }	// om636
