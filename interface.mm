@@ -14,6 +14,7 @@ namespace om636
 				type_link< http::mac_client< void, pltfrm::client_traits >, client_type >,
 				type_link< om636::window, window_type > 
 			> )
+        , m_context( new root_context )
 	{}
 
 	auto platform::make_client() -> client_type * 
@@ -24,7 +25,15 @@ namespace om636
 
 	auto platform::make_window() -> window_type * 
 	{
-		ASSERT( m_impl != 0 ); 
-        return m_impl->create<window_type>();
+		ASSERT( m_impl != 0 );
+        window_type * result( m_impl->create<window_type>() );
+        result->setContext(m_context);
+        return result;
 	}
+    
+    auto platform::context() -> root_context *
+    {
+        return m_context;
+    }
+    
 }	// om636

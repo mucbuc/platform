@@ -7,7 +7,10 @@
 #include <lib/http-client/src/client.h>
 #include <lib/http-client/src/request.h>
 #include <lib/http-client/src/response.h>
+#include <lib/platform/src/mac/root_context.h>
 #include <lib/spawn/src/abstract_factory.h>
+
+#include <tmp/src/test.h>
 
 namespace om636
 {
@@ -42,12 +45,16 @@ namespace om636
 		typedef abstract_factory< abstract_unit, client_type, window_type > impl_type;
 		std::shared_ptr< impl_type > m_impl;
 
+        root_context * m_context;
+        
 	public:
 		
 		platform();
 		virtual ~platform() = default;
 		client_type * make_client();
-		window_type * make_window(); 
+		window_type * make_window();
+        
+        root_context * context();
 	}; 
 
 } // om636
