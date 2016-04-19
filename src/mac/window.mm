@@ -20,10 +20,10 @@ namespace om636
 
 
 	public:
-		impl()
+		impl(int x, int y, unsigned w, unsigned h)
 			: window( nil )
 		{
-		    NSRect windowRect = NSMakeRect(0.0f, 0.0f, 1000.0f, 1000.0f);
+		    NSRect windowRect = NSMakeRect(x, y, w, h);
     
 		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
 
@@ -44,8 +44,8 @@ namespace om636
 
 	};
 
-	window::window() 
-	: m_impl( new impl() )
+	window::window(int x, int y, unsigned w, unsigned h)
+	: m_impl( new impl(x, y, w, h) )
 	{}
 
 

@@ -14,7 +14,7 @@ namespace om636
         
     public:
 		
-		window();
+		window(int = 0, int = 0, unsigned = 100, unsigned = 100);
 		~window() = default;
 
 		void setContext(root_context *);
