@@ -33,14 +33,14 @@ namespace om636
 		        backing:NSBackingStoreBuffered 
 		        defer:NO];
 		    [ window setContentView:view ];
-		    [ window makeKeyAndOrderFront:nil ];
 		}
 
 		void setContext(root_context * context)
 		{
 			ASSERT( window.contentView );
 			[ window.contentView setContext: context];
-		}
+            [ window makeKeyAndOrderFront:nil ];
+        }
 
 	};
 
