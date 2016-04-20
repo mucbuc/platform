@@ -25,8 +25,9 @@ namespace om636
 	{
 		ASSERT( m_impl != 0 );
         //window_type * result( m_impl->create<window_type>() );
-        window_type * result( new window_type(0, 0, 1000, 1000) );
+        window_type * result( new window_type() );
         result->setContext(m_context);
+        result->setFrame(0, 0, 1000, 1000);
         return result;
 	}
     

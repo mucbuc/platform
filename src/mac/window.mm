@@ -18,7 +18,6 @@ namespace om636
 	{
 		NSWindow * window;
 
-
 	public:
 		impl(int x, int y, unsigned w, unsigned h)
 			: window( nil )
@@ -42,17 +41,38 @@ namespace om636
             [ window makeKeyAndOrderFront:nil ];
         }
 
+        void setFrame(float x, float y, float w, float h)
+        {
+            [ window setFrame: NSMakeRect( x, y, w, h ) display: YES];
+        }
 	};
 
-	window::window(int x, int y, unsigned w, unsigned h)
-	: m_impl( new impl(x, y, w, h) )
+	window::window()
+	: m_impl()
+	, m_context(nullptr) 
 	{}
 
+	void window::setFrame(float x, float y, float w, float h)
+	{
+		if (m_impl.get()) {
+			m_impl->setFrame(x, y, w, h);
+        }
+		else {
+			m_impl.reset( new impl(x, y, w, h) );
+
+			if (m_context) {
+				m_impl->setContext(m_context);
+			}
+		}
+	}
 
 	void window::setContext(root_context * ctx)
 	{	
-		ASSERT(m_impl.get());
-		m_impl->setContext(ctx);
+		m_context = ctx;
+		
+		if (m_impl.get()) {
+			m_impl->setContext(m_context);
+		}
 	}
 
 }	// om636 
