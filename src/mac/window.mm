@@ -18,41 +18,27 @@ namespace om636
 	{
 		NSWindow * window;
 
-
 	public:
-		impl()
+		impl(root_context * context, float x, float y, float w, float h)
 			: window( nil )
 		{
-		    NSRect windowRect = NSMakeRect(0.0f, 0.0f, 1000.0f, 1000.0f);
-    
-		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
+		    NSRect windowRect = NSMakeRect(x, y, w, h);
 
 		    window = [[NSWindow alloc] 
 		        initWithContentRect:windowRect 
 		        styleMask: (NSResizableWindowMask | NSClosableWindowMask | NSTitledWindowMask) 
 		        backing:NSBackingStoreBuffered 
 		        defer:NO];
+
+		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
+		    [ view setContext: context ];
 		    [ window setContentView:view ];
+		    [ window makeKeyAndOrderFront:nil ];
 		}
-
-		void setContext(root_context * context)
-		{
-			ASSERT( window.contentView );
-			[ window.contentView setContext: context];
-            [ window makeKeyAndOrderFront:nil ];
-        }
-
 	};
 
-	window::window() 
-	: m_impl( new impl() )
+	window::window(root_context * context, float x, float y, float w, float h)
+	: m_impl( new impl(context, x, y, w, h) )
 	{}
-
-
-	void window::setContext(root_context * ctx)
-	{	
-		ASSERT(m_impl.get());
-		m_impl->setContext(ctx);
-	}
 
 }	// om636 
