@@ -7,27 +7,17 @@
 namespace om636
 {
 	platform::platform()
-		: m_impl( new concrete_factory< 
-				impl_type, 
-				type_link< http::mac_client< void, pltfrm::client_traits >, client_type >,
-				type_link< om636::window, window_type > 
-			> )
-        , m_context( new root_context )
+		: m_context( new root_context )
 	{}
 
 	auto platform::make_client() -> client_type * 
 	{
-		ASSERT( m_impl != 0 );
-		return m_impl->create<client_type>();
+		return new http::mac_client< void, pltfrm::client_traits >();
 	}
 
-	auto platform::make_window() -> window_type * 
+	auto platform::make_window(float x, float y, float w, float h) -> window_type * 
 	{
-		ASSERT( m_impl != 0 );
-		window_type * result( m_impl->create<window_type>() );
-        result->setContext(m_context);
-        result->setFrame(0, 0, 1000, 1000);
-        return result;
+        return new om636::window(context(), x, y, w, h);
 	}
     
     auto platform::context() -> root_context *

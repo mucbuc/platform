@@ -11,15 +11,11 @@ namespace om636
 	{
 		class impl;
 		std::unique_ptr< impl > m_impl;
-        root_context * m_context;
 
     public:
 		
-		window();
+		window(root_context *, float, float, float, float);
 		~window() = default;
-
-		void setFrame(float, float, float, float);
-		void setContext(root_context *);
 
 		window(const window &) = delete;
 		window & operator=(const window &) = delete;

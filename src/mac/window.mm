@@ -19,60 +19,26 @@ namespace om636
 		NSWindow * window;
 
 	public:
-		impl(int x, int y, unsigned w, unsigned h)
+		impl(root_context * context, float x, float y, float w, float h)
 			: window( nil )
 		{
 		    NSRect windowRect = NSMakeRect(x, y, w, h);
-    
-		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
 
 		    window = [[NSWindow alloc] 
 		        initWithContentRect:windowRect 
 		        styleMask: (NSResizableWindowMask | NSClosableWindowMask | NSTitledWindowMask) 
 		        backing:NSBackingStoreBuffered 
 		        defer:NO];
+
+		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
+		    [ view setContext: context ];
 		    [ window setContentView:view ];
+		    [ window makeKeyAndOrderFront:nil ];
 		}
-
-		void setContext(root_context * context)
-		{
-			ASSERT( window.contentView );
-			[ window.contentView setContext: context];
-            [ window makeKeyAndOrderFront:nil ];
-        }
-
-        void setFrame(float x, float y, float w, float h)
-        {
-            [ window setFrame: NSMakeRect( x, y, w, h ) display: YES];
-        }
 	};
 
-	window::window()
-	: m_impl()
-	, m_context(nullptr) 
+	window::window(root_context * context, float x, float y, float w, float h)
+	: m_impl( new impl(context, x, y, w, h) )
 	{}
-
-	void window::setFrame(float x, float y, float w, float h)
-	{
-		if (m_impl.get()) {
-			m_impl->setFrame(x, y, w, h);
-        }
-		else {
-			m_impl.reset( new impl(x, y, w, h) );
-
-			if (m_context) {
-				m_impl->setContext(m_context);
-			}
-		}
-	}
-
-	void window::setContext(root_context * ctx)
-	{	
-		m_context = ctx;
-		
-		if (m_impl.get()) {
-			m_impl->setContext(m_context);
-		}
-	}
 
 }	// om636 
