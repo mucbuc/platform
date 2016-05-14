@@ -38,20 +38,11 @@ namespace om636
 
 	struct platform 
 	{
-	private:
-        typedef http::Client< void, pltfrm::client_traits > client_type;
+	    typedef http::Client< void, pltfrm::client_traits > client_type;
         typedef om636::window window_type;
 		
-        root_context * m_context;
-        
-	public:
-		
-		platform();
-		virtual ~platform() = default;
-		client_type * make_client();
-		window_type * make_window(float x, float y, float w, float h);
-        
-        root_context * context();
+		static client_type * make_client();
+		static window_type * make_window(float x, float y, float w, float h, root_context &);
 	}; 
 
 } // om636

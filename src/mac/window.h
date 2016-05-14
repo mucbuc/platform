@@ -14,7 +14,7 @@ namespace om636
 
     public:
 		
-		window(root_context *, float, float, float, float);
+		window(root_context &, float, float, float, float);
 		~window() = default;
 
 		window(const window &) = delete;
