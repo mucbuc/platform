@@ -2,7 +2,6 @@
 #import <lib/platform/src/mac/TrackView.h>
 
 #include <lib/platform/src/mac/root_context.h>
-
 #include <tmp/src/test.h>
 
 @implementation TrackView
