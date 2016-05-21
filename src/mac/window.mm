@@ -31,7 +31,7 @@ namespace om636
 		        defer:NO];
 
 		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
-		    [ view setContext: & context ];
+		    [ view setContext:& context ];
 		    [ window setContentView:view ];
 		    [ window makeKeyAndOrderFront:nil ];
 		}
