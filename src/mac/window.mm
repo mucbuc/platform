@@ -19,7 +19,7 @@ namespace om636
 		NSWindow * window;
 
 	public:
-		impl(root_context * context, float x, float y, float w, float h)
+		impl(root_context & context, float x, float y, float w, float h)
 			: window( nil )
 		{
 		    NSRect windowRect = NSMakeRect(x, y, w, h);
@@ -31,13 +31,13 @@ namespace om636
 		        defer:NO];
 
 		    TrackView * view = [ [ TrackView alloc ] initWithFrame:windowRect ];
-		    [ view setContext: context ];
+		    [ view setContext:& context ];
 		    [ window setContentView:view ];
 		    [ window makeKeyAndOrderFront:nil ];
 		}
 	};
 
-	window::window(root_context * context, float x, float y, float w, float h)
+	window::window(root_context & context, float x, float y, float w, float h)
 	: m_impl( new impl(context, x, y, w, h) )
 	{}
 
