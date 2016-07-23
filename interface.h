@@ -8,8 +8,7 @@
 #include <lib/http-client/src/request.h>
 #include <lib/http-client/src/response.h>
 #include <lib/platform/src/mac/root_context.h>
-
-#include <tmp/src/test.h>
+#include <lib/platform/src/mac/text_label.h>
 
 namespace om636
 {
@@ -42,7 +41,8 @@ namespace om636
         typedef om636::window window_type;
 		
 		static client_type * make_client();
-		static window_type * make_window(float x, float y, float w, float h, root_context &);
+		static window_type * make_window(float, float, float, float, root_context &);
+		static text_label * make_label(const char *, float, float, float, float);
 	}; 
 
 } // om636

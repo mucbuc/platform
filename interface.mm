@@ -17,5 +17,10 @@ namespace om636
 	{
         return new om636::window(context, x, y, w, h);
 	}
+
+	auto platform::make_label(const char * text, float left, float top, float right, float bottom) -> text_label *
+	{
+		return new om636::text_label(text, left, top, right, bottom);
+	}
    
 }	// om636
