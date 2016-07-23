@@ -19,6 +19,8 @@
 		"src/mac/OpenGLView.mm",
 		"src/mac/root_context.cpp",
 		"src/mac/root_context.h",
+		"src/mac/text_label.h",
+		"src/mac/text_label.mm",
 		"src/mac/TrackView.h",
 		"src/mac/TrackView.mm",
 		"src/mac/window.h",
